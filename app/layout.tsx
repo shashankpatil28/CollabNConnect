@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
 import { cn } from "@/lib/utils";
 
 export default function RootLayout({
@@ -30,7 +31,9 @@ export default function RootLayout({
             defaultTheme="dark"
             // forcedTheme="dark"
             enableSystem={false}
-            storageKey="discord-theme">
+            storageKey="discord-theme"
+            >
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </body>
