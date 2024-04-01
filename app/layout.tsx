@@ -13,6 +13,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { ModalProvider } from "@/components/providers/modal-provider";
 import { cn } from "@/lib/utils";
+import { SocketProvider } from "@/components/providers/socket-provider";
 
 export default function RootLayout({
   children,
@@ -33,8 +34,10 @@ export default function RootLayout({
             enableSystem={false}
             storageKey="discord-theme"
             >
-            <ModalProvider />
-            {children}
+              <SocketProvider>
+                <ModalProvider />
+                {children}
+              </SocketProvider>
           </ThemeProvider>
         </body>
       </html>
